@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32104.313
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Necklace", "Necklace\Necklace.csproj", "{DB9D09E1-2632-4980-9951-D1656C91C34B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB9D09E1-2632-4980-9951-D1656C91C34B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB9D09E1-2632-4980-9951-D1656C91C34B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB9D09E1-2632-4980-9951-D1656C91C34B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB9D09E1-2632-4980-9951-D1656C91C34B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2E48A9F7-E9EA-43C9-A5BB-74243626A8C6}
+	EndGlobalSection
+EndGlobal
