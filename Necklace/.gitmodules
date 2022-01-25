@@ -1,0 +1,4 @@
+[submodule "NetSparkle"]
+	path = NetSparkle
+	url = https://github.com/NetSparkleUpdater/NetSparkle.git
+	branch = develop
