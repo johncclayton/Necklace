@@ -1,4 +1,7 @@
 image: gitpod/workspace-dotnet
+vscode:
+  extensions:
+    - muhammad-sammy.csharp
 tasks:
   - init: |
       echo 'TODO: build project'
