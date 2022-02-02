@@ -1,9 +1,14 @@
-image: gitpod/workspace-dotnet
+image:
+  file: .gitpod.Dockerfile
+tasks:
+  - init: npm install
+    command: |
+      npm run build && 
+      npm test && 
+      func start
+  - command: |
+      gp await-port 7071 && 
+      gp preview $(gp url 7071)
 vscode:
   extensions:
-    - muhammad-sammy.csharp
-tasks:
-  - init: |
-      dotnet restore
-    command: |
-      echo 'TODO: start app'
+    - Orta.vscode-jest@3.2.0:adbRMTNfxv/Rzc4SOP/c3g==
