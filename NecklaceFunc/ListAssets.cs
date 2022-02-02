@@ -35,10 +35,6 @@ namespace Necklace
             dynamic data = JsonConvert.DeserializeObject(requestBody);
             //name = name ?? data?.name;
 
-            // when using Environment to get auth. 
-            //string connectionString = Environment.GetEnvironmentVariable("AzureWebJobsStorage");
-            //var container = new BlobContainerClient(connectionString, "$web");
-
             // use the Blob SDK to read out a list of all the files we've got, then pump this into the code 
             Queue<string> prefixes = new Queue<string>();
             prefixes.Enqueue("");
