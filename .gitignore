@@ -364,3 +364,8 @@ FodyWeavers.xsd
 
 appcastcode-function.zip
 /bfg.jar
+
+**/__azurite**
+
+package-lock.json
+

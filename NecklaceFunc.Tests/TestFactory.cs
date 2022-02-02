@@ -29,6 +29,12 @@ public class TestFactory
         return qs;
     }
 
+    public static BlobContainerClient GetBlobContainerClient(string containerName = "$web")
+    {
+        var conn_string = "DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;";
+        return new BlobContainerClient(connectionString, containerName);
+    }
+
     public static HttpRequest CreateHttpRequest(string queryStringKey, string queryStringValue)
     {
         var context = new DefaultHttpContext();

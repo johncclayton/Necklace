@@ -1,6 +1,8 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
@@ -10,10 +12,10 @@ using Newtonsoft.Json;
 
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
+
 using Azure.Identity;
 using Azure.ResourceManager;
 using Azure.ResourceManager.Resources;
-using System.Collections.Generic;
 
 namespace Necklace
 {
@@ -22,6 +24,7 @@ namespace Necklace
         [FunctionName("ListAssets")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
+            [Blob("$web")] BlobContainerClient container,
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request to LIST THE ASSETS.");
@@ -33,8 +36,8 @@ namespace Necklace
             //name = name ?? data?.name;
 
             // when using Environment to get auth. 
-            string connectionString = Environment.GetEnvironmentVariable("AzureWebJobsStorage");
-            var container = new BlobContainerClient(connectionString, "$web");
+            //string connectionString = Environment.GetEnvironmentVariable("AzureWebJobsStorage");
+            //var container = new BlobContainerClient(connectionString, "$web");
 
             // use the Blob SDK to read out a list of all the files we've got, then pump this into the code 
             Queue<string> prefixes = new Queue<string>();
