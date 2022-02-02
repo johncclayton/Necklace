@@ -18,6 +18,10 @@ github:
 image:
   file: .gitpod.Dockerfile
 
+tasks:
+  - name: Start Azurite
+    command: azurite --silent --location ./Azurite 
+
 vscode:
   extensions:
     - Orta.vscode-jest@3.2.0:adbRMTNfxv/Rzc4SOP/c3g==
