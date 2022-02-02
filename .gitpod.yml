@@ -20,7 +20,7 @@ image:
 
 tasks:
   - name: Start Azurite
-    command: azurite --silent --location ./Azurite 
+    command: mkdir Azurite && azurite --silent --location ./Azurite 
 
 vscode:
   extensions:
