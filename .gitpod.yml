@@ -4,6 +4,6 @@ vscode:
     - muhammad-sammy.csharp
 tasks:
   - init: |
-      echo 'TODO: build project'
+      dotnet restore
     command: |
       echo 'TODO: start app'
