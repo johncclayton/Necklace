@@ -1,4 +1,5 @@
-﻿namespace Necklace.Api;
+﻿using Azure.Data.Tables;
+namespace Necklace.Api;
 
 public class AppCast 
 {
