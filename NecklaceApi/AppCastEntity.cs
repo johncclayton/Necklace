@@ -1,41 +1,17 @@
-﻿using Azure.Data.Tables;
-namespace Necklace.Api;
+﻿using Azure;
+using Azure.Data.Tables;
 
-public class AppCast 
+namespace NecklaceApi;
+
+public class AppCastEntity : ITableEntity
 {
     public DateTime CreatedTime { get; set; }
-    public string Description { get; set; }
+    public string? Description { get; set; }
     public bool ProductName { get; set; }
-}
-
-public class AppCastEntity : TableEntity
-{
-    public DateTime CreatedTime { get; set; }
-    public string Description { get; set; }
-    public bool ProductName { get; set; }
-}
-
-public static class Mappings
-{
-    public static AppCastEntity ToTableEntity(this AppCast cast)
-    {
-        return new AppCastEntity
-        {
-            PartitionKey = "APPCAST",
-            RowKey = cast.Id,
-            Description = cast.Description,
-            ProductName = cast.ProductName,
-        };
-    }
-
-    public static AppCast FromTableEntity(this AppCastEntity cast)
-    {
-        return new AppCast
-        {
-            Id = cast.RowKey,
-            CreatedTime = cast.CreatedTime,
-            Description = cast.Description,
-            ProductName = cast.ProductName
-        };
-    }
+    
+    public string PartitionKey { get => "APPCAST"; set => _ = value; }
+    public string RowKey { get; set; }
+    
+    public DateTimeOffset? Timestamp { get; set; }
+    public ETag ETag { get; set; }
 }
