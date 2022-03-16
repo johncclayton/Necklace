@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+  redis:
+    image: redis:alpine
+
+  zipkin:
+    image: openzipkin/zipkin-slim
+
+  releaseservice:
+    image: ${DOCKER_REGISTRY-}releaseservice
+    build:
+      context: .
+      dockerfile: ReleaseService/Dockerfile
+    depends_on:
+      - redis
+
+  releaseservice-dapr:
+    image: daprio/dapr:1.6.0
+    network_mode: "service:releaseservice"
+    depends_on:
+      - releaseservice
+
+  servicetests:
+    image: ${DOCKER_REGISTRY-}servicetests
+    build:
+      context: .
+      dockerfile: ServiceTests/Dockerfile
+

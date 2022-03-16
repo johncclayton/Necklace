@@ -1,0 +1,28 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "redis": "StartWithoutDebugging",
+        "releaseservice": "StartDebugging",
+        "releaseservice-dapr": "StartWithoutDebugging",
+        "servicetests": "StartDebugging",
+        "zipkin": "StartWithoutDebugging"
+      }
+    },
+    "Unit Tests": {
+      "commandName": "DockerCompose",
+      "composeLaunchAction": "None",
+      "composeLaunchServiceName": "servicetests",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "redis": "StartWithoutDebugging",
+        "releaseservice": "StartDebugging",
+        "releaseservice-dapr": "StartWithoutDebugging",
+        "servicetests": "StartDebugging",
+        "zipkin": "StartWithoutDebugging"
+      }
+    }
+  }
+}

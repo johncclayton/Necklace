@@ -1,0 +1,11 @@
+// Look up existing releases
+GET http://127.0.0.1:6000/release/query
+Content-Type: application/json
+
+###
+
+// Create a new release object
+POST http://127.0.0.1:6000/exitcam
+Content-Type: application/json
+
+{ "lane": 1, "licenseNumber": "XT-346-Y", "timestamp": "2020-09-10T10:38:52" }
