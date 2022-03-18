@@ -1,5 +1,5 @@
 // Look up existing releases
-GET http://127.0.0.1:6000/release/query
+GET http://127.0.0.1:7000/invoke/releaseservice/method/softwarerelease/12
 Content-Type: application/json
 
 ###

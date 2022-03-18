@@ -13,10 +13,16 @@ public class SoftwareReleaseController : ControllerBase
         _logger = logger;
     }
 
-    [HttpGet(Name = "GetSoftwareRelease")]
-    public IEnumerable<SoftwareRelease> Get()
+    [HttpGet("{id}")]
+    public IEnumerable<SoftwareRelease> Get(string id)
     {
-        return null;
+        return Enumerable.Range(1, 1).Select(index => new SoftwareRelease
+        (
+            Id: index.ToString(),
+            ProductName: "Product with a name",
+            Description: "this is a description",
+            created: DateTime.Now
+        )).ToArray();
         // TODO: fetch all the software releases from DAPR state/storage.
         //return Enumerable.Range(1, 5).Select(index => new WeatherForecast
         //{

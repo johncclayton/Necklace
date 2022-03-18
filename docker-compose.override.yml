@@ -14,33 +14,20 @@ services:
     command: ["./daprd",
         "-app-id", "releaseservice-api",
         "-app-port", "80",
+        "-dapr-http-port", "7000",
+        "-dapr-grpc-port", "8000",              
         "-components-path", "/components",
         "-config", "/configuration/necklace-config.yaml"
       ]
     volumes:
       - "./dapr/components/:/components"
       - "./dapr/configuration/:/configuration"
-    
+      
   releaseservice:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80
-    ports:
-      - "5100:80"
-      - "5101:443"
 
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
-
-  servicetests-dapr:
-    command: ["./daprd",
-        "-app-id", "servicetests-api",
-        "-app-port", "80",
-        "-metrics-port", "9091",
-        "-components-path", "/components",
-        "-config", "/configuration/necklace-config.yaml"
-        ]
-    volumes:
-        - "./dapr/components/:/components"
-        - "./dapr/configuration/:/configuration"

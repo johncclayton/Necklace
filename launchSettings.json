@@ -8,7 +8,8 @@
         "releaseservice": "StartDebugging",
         "releaseservice-dapr": "StartWithoutDebugging",
         "servicetests": "StartDebugging",
-        "zipkin": "StartWithoutDebugging"
+        "zipkin": "StartWithoutDebugging",
+        "servicetests-dapr": "StartWithoutDebugging"
       }
     },
     "Unit Tests": {
@@ -21,7 +22,8 @@
         "releaseservice": "StartDebugging",
         "releaseservice-dapr": "StartWithoutDebugging",
         "servicetests": "StartDebugging",
-        "zipkin": "StartWithoutDebugging"
+        "zipkin": "StartWithoutDebugging",
+        "servicetests-dapr": "StartWithoutDebugging"
       }
     }
   }
