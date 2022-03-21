@@ -5,7 +5,7 @@ Content-Type: application/json
 ###
 
 // Create a new release object
-POST http://127.0.0.1:7000/v1.0/invoke/releaseservice/method/api/softwarelease/
+POST http://127.0.0.1:7000/v1.0/invoke/releaseservice/method/api/softwarerelease/
 Content-Type: application/json
 
 {

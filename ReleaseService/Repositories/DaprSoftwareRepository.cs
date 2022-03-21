@@ -24,7 +24,9 @@ public class DaprSoftwareRepository : ISoftwareReleaseRepository
 
     public async Task<SoftwareRelease> UpdateSoftwareRelease(SoftwareRelease newObject)
     {
-        var storeObject = newObject with { Id = Guid.NewGuid() };
+        var storeObject = newObject;
+        if(storeObject.Id == Guid.Empty)
+            storeObject = newObject with { Id = Guid.NewGuid() };
         await _daprClient.SaveStateAsync(DAPR_STORE_NAME, storeObject.Id.ToString(), storeObject);
         return await Task.FromResult(storeObject);
     }
