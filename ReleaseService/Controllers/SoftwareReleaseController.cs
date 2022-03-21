@@ -37,7 +37,7 @@ namespace ReleaseService.Controllers
         [HttpPost]
         public void Post([FromBody] SoftwareRelease value)
         {
-            throw new NotImplementedException();
+            _repo.UpdateSoftwareRelease(value);
         }
 
         // PUT: api/SoftwareRelease/5

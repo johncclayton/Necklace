@@ -5,6 +5,7 @@ using DataModels.Models;
 using Bogus;
 using Bogus.Extensions;
 using System.Text.Json;
+using System.Threading.Channels;
 
 namespace FakeDataGen
 {
@@ -65,9 +66,10 @@ namespace FakeDataGen
                 .CustomInstantiator(f =>
                new SoftwareRelease(
                    f.Random.Guid(),
-                   opts.ProductName,
-                   f.Commerce.ProductAdjective(),
-                   f.Date.Past()
+                   ProductName:opts.ProductName,
+                   Channel: "stable",
+                   Description: f.Commerce.ProductAdjective(),
+                   Created: f.Date.Past()
                    ));
 
             var data = softwareFaker.Generate(opts.NumberOfEntries);

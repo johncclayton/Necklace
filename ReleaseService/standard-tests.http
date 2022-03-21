@@ -5,12 +5,13 @@ Content-Type: application/json
 ###
 
 // Create a new release object
-POST http://127.0.0.1:7000/exitcam
+POST http://127.0.0.1:7000/v1.0/invoke/releaseservice/method/softwarelease/
 Content-Type: application/json
 
 {
   "Id": "ea659017-a788-c14d-415d-a72a7e208ad6",
   "ProductName": "MyProduct",
+  "Channel": "stable",
   "Description": "Unbranded",
   "Created": "2021-07-01T10:20:57.6209513+02:00"
 }

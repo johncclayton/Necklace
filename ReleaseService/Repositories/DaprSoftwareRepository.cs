@@ -21,4 +21,11 @@ public class DaprSoftwareRepository : ISoftwareReleaseRepository
     {
         return _daprClient.GetStateAsync<SoftwareRelease>(DAPR_STORE_NAME, releaseId.ToString()).Result;
     }
+
+    public async Task<SoftwareRelease> UpdateSoftwareRelease(SoftwareRelease newObject)
+    {
+        var storeObject = newObject with { Id = Guid.NewGuid() };
+        await _daprClient.SaveStateAsync(DAPR_STORE_NAME, storeObject.Id.ToString(), storeObject);
+        return await Task.FromResult(storeObject);
+    }
 }
