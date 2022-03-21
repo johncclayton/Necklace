@@ -64,7 +64,7 @@ namespace FakeDataGen
             var softwareFaker = new Faker<SoftwareRelease>()
                 .CustomInstantiator(f =>
                new SoftwareRelease(
-                   f.IndexVariable++.ToString(),
+                   f.Random.Guid(),
                    opts.ProductName,
                    f.Commerce.ProductAdjective(),
                    f.Date.Past()

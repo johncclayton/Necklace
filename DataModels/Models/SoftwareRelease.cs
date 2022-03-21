@@ -1,8 +1,8 @@
 ﻿namespace DataModels.Models;
 
-public record class SoftwareRelease(
-    string Id,
+public record SoftwareRelease(
+    Guid Id,
     string ProductName,
     string Description,
-    DateTime created
+    DateTime Created
     );

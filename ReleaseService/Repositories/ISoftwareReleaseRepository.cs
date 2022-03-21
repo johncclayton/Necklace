@@ -2,6 +2,6 @@
 
 public interface ISoftwareReleaseRepository
 {
-    SoftwareRelease GetSoftwareRelease(string releaseId);
-    IList<SoftwareRelease> GetAllSoftwareReleases();
+    SoftwareRelease GetSoftwareRelease(Guid releaseId);
+    //IList<SoftwareRelease> GetAllSoftwareReleases();
 }

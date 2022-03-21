@@ -1,35 +1,57 @@
-namespace ReleaseService.Controllers;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using ReleaseService.Repositories;
 
-[ApiController]
-[Route("[controller]")]
-public class SoftwareReleaseController : ControllerBase
+namespace ReleaseService.Controllers
 {
-    private readonly ILogger<SoftwareReleaseController> _logger;
-    private DaprClient _daprClient;
-
-    public SoftwareReleaseController(DaprClient daprClient, ILogger<SoftwareReleaseController> logger)
+    [Route("api/[controller]")]
+    [ApiController]
+    public class SoftwareReleaseController : ControllerBase
     {
-        _daprClient = daprClient;
-        _logger = logger;
-    }
+        private readonly ISoftwareReleaseRepository _repo;
 
-    [HttpGet("{id}")]
-    public IEnumerable<SoftwareRelease> Get(string id)
-    {
-        return Enumerable.Range(1, 1).Select(index => new SoftwareRelease
-        (
-            Id: index.ToString(),
-            ProductName: "Product with a name",
-            Description: "this is a description",
-            created: DateTime.Now
-        )).ToArray();
-        // TODO: fetch all the software releases from DAPR state/storage.
-        //return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-        //{
-        //    Date = DateTime.Now.AddDays(index),
-        //    TemperatureC = Random.Shared.Next(-20, 55),
-        //    Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-        //})
-        //.ToArray();
+        public SoftwareReleaseController(ISoftwareReleaseRepository repo)
+        {
+            _repo = repo;
+        }
+        
+        // GET: api/SoftwareRelease
+        [HttpGet]
+        public IEnumerable<SoftwareRelease> Get()
+        {
+            throw new NotImplementedException();
+        }
+
+        // GET: api/SoftwareRelease/5
+        [HttpGet("{id}", Name = "Get")]
+        public SoftwareRelease Get(Guid id)
+        {
+            return _repo.GetSoftwareRelease(id);
+        }
+
+        // POST: api/SoftwareRelease
+        [HttpPost]
+        public void Post([FromBody] SoftwareRelease value)
+        {
+            throw new NotImplementedException();
+        }
+
+        // PUT: api/SoftwareRelease/5
+        [HttpPut("{id}")]
+        public void Put(Guid id, [FromBody] SoftwareRelease value)
+        {
+            throw new NotImplementedException();
+        }
+
+        // DELETE: api/SoftwareRelease/5
+        [HttpDelete("{id}")]
+        public void Delete(SoftwareRelease id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

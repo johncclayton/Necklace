@@ -1,23 +1,24 @@
 ﻿namespace ReleaseService.Repositories;
+using DataModels.Models;
 
 public class DaprSoftwareRepository : ISoftwareReleaseRepository
 {
-    private const string DAPR_STORE_NAME = "softwarerelease";
-    private DaprClient _daprClient;
+    // ReSharper disable once InconsistentNaming
+    private const string DAPR_STORE_NAME = "statestore";
+    private readonly DaprClient _daprClient;
 
     public DaprSoftwareRepository(DaprClient client)
     {
         _daprClient = client;
     }
 
-    public IList<SoftwareRelease> GetAllSoftwareReleases()
-    {
-        //return await _daprClient.GetBulkStateAsync<SoftwareRelease>(DAPR_STORE_NAME, )
-        return null;
-    }
+    // public IList<SoftwareRelease> GetAllSoftwareReleases()
+    // {
+    //     throw new NotImplementedException();
+    // }
 
-    public SoftwareRelease GetSoftwareRelease(string releaseId)
+    public SoftwareRelease GetSoftwareRelease(Guid releaseId)
     {
-        return null;
+        return _daprClient.GetStateAsync<SoftwareRelease>(DAPR_STORE_NAME, releaseId.ToString()).Result;
     }
 }
