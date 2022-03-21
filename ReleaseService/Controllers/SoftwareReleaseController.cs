@@ -27,7 +27,7 @@ namespace ReleaseService.Controllers
         }
 
         // GET: api/SoftwareRelease/5
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}")]
         public SoftwareRelease Get(Guid id)
         {
             return _repo.GetSoftwareRelease(id);

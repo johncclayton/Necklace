@@ -1,11 +1,11 @@
 // Look up existing releases
-GET http://127.0.0.1:7000/v1.0/invoke/releaseservice/method/softwarerelease/ea659017-a788-c14d-415d-a72a7e208ad6
+GET http://127.0.0.1:7000/v1.0/invoke/releaseservice/method/api/softwarerelease/ea659017-a788-c14d-415d-a72a7e208ad6
 Content-Type: application/json
 
 ###
 
 // Create a new release object
-POST http://127.0.0.1:7000/v1.0/invoke/releaseservice/method/softwarelease/
+POST http://127.0.0.1:7000/v1.0/invoke/releaseservice/method/api/softwarelease/
 Content-Type: application/json
 
 {
