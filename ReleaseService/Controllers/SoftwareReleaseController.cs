@@ -13,7 +13,6 @@ namespace ReleaseService.Controllers
     public class SoftwareReleaseController : ControllerBase
     {
         private readonly ISoftwareReleaseRepository _repo;
-        private SoftwareRelease newValue;
 
         public SoftwareReleaseController(ISoftwareReleaseRepository repo)
         {
@@ -22,41 +21,27 @@ namespace ReleaseService.Controllers
         
         // GET: api/SoftwareRelease
         [HttpGet]
-        public IEnumerable<SoftwareRelease> Get()
+        public IEnumerable<SoftwareRelease> GetAll()
         {
             throw new NotImplementedException();
         }
 
         // GET: api/SoftwareRelease/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(Guid id)
-        {
-            return StatusCode(StatusCodes.Status200OK,
-                await _repo.GetSoftwareRelease(id));
-        }
+        public async Task<SoftwareRelease> Get(Guid id) => await _repo.GetSoftwareRelease(id);
 
         // POST: api/SoftwareRelease
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] SoftwareRelease value)
-        {
-            return StatusCode(StatusCodes.Status201Created,
-                await _repo.UpdateSoftwareRelease(value));
-        }
+        public async Task<SoftwareRelease> Create([FromBody] SoftwareRelease value) =>
+            await _repo.UpdateSoftwareRelease(value);
 
         // PUT: api/SoftwareRelease/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(Guid id, [FromBody] SoftwareRelease value)
-        {
-            newValue = value with { Id = id };
-            return StatusCode(StatusCodes.Status201Created, 
-                await _repo.UpdateSoftwareRelease(newValue));
-        }
+        public async Task<SoftwareRelease> Update(Guid id, [FromBody] SoftwareRelease value) =>
+            await _repo.UpdateSoftwareRelease(value with { Id = id });
 
         // DELETE: api/SoftwareRelease/5
         [HttpDelete("{id}")]
-        public async Task Delete(Guid id)
-        {
-            await _repo.DeleteSoftwareRelease(id);
-        }
+        public async Task Delete(Guid id) => await _repo.DeleteSoftwareRelease(id);
     }
 }
