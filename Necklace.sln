@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataModels", "DataModels\Da
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{CCE9B38B-2283-4C80-B934-A1EB258708B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceTests", "ServiceTests\ServiceTests.csproj", "{50F19261-136C-45E1-916B-AEDA52137D3E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{50F19261-136C-45E1-916B-AEDA52137D3E}"
 	ProjectSection(ProjectDependencies) = postProject
 		{2100C924-9B0B-4A97-B7A9-A3E494B896D3} = {2100C924-9B0B-4A97-B7A9-A3E494B896D3}
 	EndProjectSection

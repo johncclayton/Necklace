@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
 using DataModels.Models;
-using Microsoft.AspNetCore.Mvc;
 using Moq;
 using ReleaseService.Controllers;
 using ReleaseService.Repositories;
 using Xunit;
 
-namespace ServiceTests;
+namespace UnitTests;
 
 public class TestSoftwareReleaseController
 {
@@ -57,6 +56,5 @@ public class TestSoftwareReleaseController
         Assert.Equal("MyProduct", obj.ProductName);
         Assert.Equal("it's an object!", obj.Description);
     }
-    
     
 }

@@ -7,6 +7,10 @@
     <IsPackable>false</IsPackable>
 
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+
+    <AssemblyName>UnitTests</AssemblyName>
+
+    <RootNamespace>UnitTests</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
