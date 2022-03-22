@@ -17,9 +17,9 @@ public class DaprSoftwareRepository : ISoftwareReleaseRepository
     //     throw new NotImplementedException();
     // }
 
-    public SoftwareRelease GetSoftwareRelease(Guid releaseId)
+    public async Task<SoftwareRelease> GetSoftwareRelease(Guid releaseId)
     {
-        return _daprClient.GetStateAsync<SoftwareRelease>(DAPR_STORE_NAME, releaseId.ToString()).Result;
+        return await _daprClient.GetStateAsync<SoftwareRelease>(DAPR_STORE_NAME, releaseId.ToString());
     }
 
     public async Task<SoftwareRelease> UpdateSoftwareRelease(SoftwareRelease newObject)
@@ -31,8 +31,8 @@ public class DaprSoftwareRepository : ISoftwareReleaseRepository
         return await Task.FromResult(storeObject);
     }
 
-    public void DeleteSoftwareRelease(Guid id)
+    public async Task DeleteSoftwareRelease(Guid id)
     {
-        _daprClient.DeleteStateAsync(DAPR_STORE_NAME, id.ToString());
+        await _daprClient.DeleteStateAsync(DAPR_STORE_NAME, id.ToString());
     }
 }

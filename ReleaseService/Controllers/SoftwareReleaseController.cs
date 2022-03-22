@@ -29,32 +29,34 @@ namespace ReleaseService.Controllers
 
         // GET: api/SoftwareRelease/5
         [HttpGet("{id}")]
-        public SoftwareRelease Get(Guid id)
+        public async Task<IActionResult> Get(Guid id)
         {
-            return _repo.GetSoftwareRelease(id);
+            return StatusCode(StatusCodes.Status200OK,
+                await _repo.GetSoftwareRelease(id));
         }
 
         // POST: api/SoftwareRelease
         [HttpPost]
-        public void Post([FromBody] SoftwareRelease value)
+        public async Task<IActionResult> Post([FromBody] SoftwareRelease value)
         {
-            _repo.UpdateSoftwareRelease(value);
+            return StatusCode(StatusCodes.Status201Created,
+                await _repo.UpdateSoftwareRelease(value));
         }
 
         // PUT: api/SoftwareRelease/5
         [HttpPut("{id}")]
-        public IActionResult Put(Guid id, [FromBody] SoftwareRelease value)
+        public async Task<IActionResult> Put(Guid id, [FromBody] SoftwareRelease value)
         {
             newValue = value with { Id = id };
-            _repo.UpdateSoftwareRelease(newValue);
-            return StatusCode(StatusCodes.Status201Created, newValue);
+            return StatusCode(StatusCodes.Status201Created, 
+                await _repo.UpdateSoftwareRelease(newValue));
         }
 
         // DELETE: api/SoftwareRelease/5
         [HttpDelete("{id}")]
-        public void Delete(Guid id)
+        public async Task Delete(Guid id)
         {
-            _repo.DeleteSoftwareRelease(id);
+            await _repo.DeleteSoftwareRelease(id);
         }
     }
 }
