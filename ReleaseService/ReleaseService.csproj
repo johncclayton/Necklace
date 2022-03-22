@@ -17,6 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <InternalsVisibleTo Include="UnifiedIntegrationTests" />
+  </ItemGroup>
+  
+  <ItemGroup>
     <ProjectReference Include="..\DataModels\DataModels.csproj" />
   </ItemGroup>
 
