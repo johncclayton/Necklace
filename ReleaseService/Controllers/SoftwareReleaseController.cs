@@ -13,6 +13,7 @@ namespace ReleaseService.Controllers
     public class SoftwareReleaseController : ControllerBase
     {
         private readonly ISoftwareReleaseRepository _repo;
+        private SoftwareRelease newValue;
 
         public SoftwareReleaseController(ISoftwareReleaseRepository repo)
         {
@@ -42,16 +43,18 @@ namespace ReleaseService.Controllers
 
         // PUT: api/SoftwareRelease/5
         [HttpPut("{id}")]
-        public void Put(Guid id, [FromBody] SoftwareRelease value)
+        public IActionResult Put(Guid id, [FromBody] SoftwareRelease value)
         {
-            throw new NotImplementedException();
+            newValue = value with { Id = id };
+            _repo.UpdateSoftwareRelease(newValue);
+            return StatusCode(StatusCodes.Status201Created, newValue);
         }
 
         // DELETE: api/SoftwareRelease/5
         [HttpDelete("{id}")]
-        public void Delete(SoftwareRelease id)
+        public void Delete(Guid id)
         {
-            throw new NotImplementedException();
+            _repo.DeleteSoftwareRelease(id);
         }
     }
 }

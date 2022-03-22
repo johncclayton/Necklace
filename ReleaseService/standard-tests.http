@@ -15,3 +15,34 @@ Content-Type: application/json
   "Description": "Unbranded",
   "Created": "2021-07-01T10:20:57.6209513+02:00"
 }
+
+###
+
+// Modify the existing object, change its ProductName 
+PUT http://127.0.0.1:7000/v1.0/invoke/releaseservice/method/api/softwarerelease/ea659017-a788-c14d-415d-a72a7e208ad6
+Content-Type: application/json
+
+{
+  "Id": "ea659017-a788-c14d-415d-a72a7e208ad6",
+  "ProductName": "No!",
+  "Channel": "stable",
+  "Description": "Unbranded",
+  "Created": "2021-07-01T10:20:57.6209513+02:00"
+}
+
+###
+
+// Look up the record again
+GET    http://127.0.0.1:7000/v1.0/invoke/releaseservice/method/api/softwarerelease/ea659017-a788-c14d-415d-a72a7e208ad6
+Content-Type: application/json
+
+###
+
+// Finally, delete it
+DELETE http://127.0.0.1:7000/v1.0/invoke/releaseservice/method/api/softwarerelease/ea659017-a788-c14d-415d-a72a7e208ad6
+Content-Type: application/json
+
+{}
+###
+
+

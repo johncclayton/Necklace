@@ -30,4 +30,9 @@ public class DaprSoftwareRepository : ISoftwareReleaseRepository
         await _daprClient.SaveStateAsync(DAPR_STORE_NAME, storeObject.Id.ToString(), storeObject);
         return await Task.FromResult(storeObject);
     }
+
+    public void DeleteSoftwareRelease(Guid id)
+    {
+        _daprClient.DeleteStateAsync(DAPR_STORE_NAME, id.ToString());
+    }
 }
